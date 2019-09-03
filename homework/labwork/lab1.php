@@ -3,7 +3,7 @@
     <head>
         <title>Labwork 1: Hello World</title>
         <style>
-        @import url('https://fonts.googleapis.com/css?family=Chilanka|Livvic&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Lexend+Exa|Livvic&display=swap');
         
             body {
                 margin:10%;
@@ -15,13 +15,20 @@
             }
             
             p {
-                font-family: 'Chilanka', cursive;
+                font-family: 'Lexend Exa', sans-serif;
                 color: darkblue;
+            }
+            li {
+               font-family: 'Lexend Exa', sans-serif;
+                color: darkblue; 
             }
             
             a {
             color: black;
                 
+            }
+            a:hover {
+                color: blue;
             }
             
             
