@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Political Campaign Support Form </title>
+        </head>
+        <body>
+            
+            <h1>Steve Carell's Campaign Supporter Form </h1>
+            <form action = "process_contact.php" method = "POST">
+            
+             <label for = "first_name"> First Name: </label>
+                <input type = "text" id="first_name" name="first_name" required><br>
+                
+                 <label for = "last_name"> Last Name: </label>
+                <input type = "text" id="last_name" name="last_name" required><br>
+                
+                <label for ="email">Email Address: </label>
+                <input type = "email" name ="email" id="email" required><br>
+                
+                <label for="gender">Gender: </label>
+            <select name="gender" required>
+                <option value="gender"></option>
+            <option value="gender">Male</option>
+            <option value="gender">Female</option>
+            <option value="gender">Prefer not to say</option>
+          </select> <br>
+            
+            <label for="age">Age: </label> 
+            <select name="age" required>
+            <option value="empty"> </option> 
+            <option value="18-25">18-25</option> 
+            <option value="26-35">26-35</option> 
+            <option value="36-45">36-45</option> 
+            <option value="46-55">46-55</option> 
+            <option value="56+">56+</option> 
+            </select> <br>
+            
+            <label for="Interests">Interests: </label><br>
+          <input type="checkbox" name="interest1" value="Traveling"> Traveling<br>
+          <input type="checkbox" name="interest2" value="Art"> Art<br>
+          <input type="checkbox" name="interest3" value="Outdoor Activities"> Outdoor Activities<br>
+          <input type="checkbox" name="interest4" value="Music"> Music<br>
+          <input type="checkbox" name="interest5" value="History"> History<br>
+          <input type="checkbox" name="interest6" value="Gaming"> Gaming<br>
+          
+         <label for="contribution">Contribution Amount: </label> 
+         <input type="number" name="number" min="0" max="1000000"><br>
+         
+         <label for="newsletter">Would you like to receive newsletters and any other relevant information regarding your chosen politician?</label><br>
+          <input type="checkbox" name="yes" value="yes" checked> Yes<br>
+          <input type="checkbox" name="No" value="No"> No<br>
+          
+           <label for="comments">Any comments? Please type them below, and we will answer you as soon as possible.</label> 
+          <textarea name="comment" placeholder="Type a comment or question here..."> </textarea> <br>
+            
+                <button> Submit </button>
+                
+                
+            </form>
+            
+            </body>
+            </html>
+            
