@@ -20,15 +20,13 @@
                 
                 <label for="gender">Gender: </label>
             <select name="gender" id="gender" required>
-                <option value="empty" disabled></option>
-            <option value="gender">Male</option>
-            <option value="gender">Female</option>
-            <option value="gender">Prefer not to say</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="undefined">Prefer not to say</option>
           </select> <br>
             
             <label for="age">Age: </label> 
-            <select name="age" required>
-            <option value="empty" disabled> </option> 
+            <select name="age" id="age" required>
             <option value="18-25">18-25</option> 
             <option value="26-35">26-35</option> 
             <option value="36-45">36-45</option> 
@@ -45,14 +43,13 @@
           <input type="checkbox" name="interest6" value="Gaming"> Gaming<br>
           
          <label for="contribution">Contribution Amount: </label> 
-         <input type="number" name="number" min="0" max="1000000"><br>
+         <input type="number" name="contribution" min="0" max="1000000"><br>
          
-         <label for="newsletter">Would you like to receive newsletters and any other relevant information regarding your chosen politician?</label><br>
-          <input type="checkbox" name="yes" value="yes" checked> Yes<br>
-          <input type="checkbox" name="No" value="No"> No<br>
+         <input type="checkbox" name="newsletter" value="newsletter" checked> Sign up to receive newsletters and any other relevant information regarding Steve Carell <br>
+
           
-           <label for="comments">Any comments? Please type them below, and we will answer you as soon as possible.</label> 
-          <textarea name="comment" placeholder="Type a comment or question here..."> </textarea> <br>
+           <label for="comments">Any comments? Please type them below, and we will respond as soon as possible.</label> 
+          <textarea name="comment" rows="10" cols="50" placeholder="Type a comment or question here..."> </textarea> <br>
             
                 <button> Submit </button>
                 
