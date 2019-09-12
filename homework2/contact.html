@@ -2,7 +2,151 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lora&display=swap" rel="stylesheet">
         <title> Political Campaign Support Form </title>
+        
+        <style>
+            h1 { 
+    font-family: 'Lora', serif;
+    color: black;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+}
+
+form {
+     border-radius: 5px;
+  background-color: #f3f3f3;
+    padding: 30px 20px 30px 20px;
+     text-align: justify;
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+    margin: 0 25% 0 25%;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+   margin-left: 10%;
+  width: 25%;
+  margin-top: 6px;
+}
+
+#comment label {
+    width: 100%;
+}
+
+input[type=text] {
+  
+  padding: 8px 20px;
+  margin: 8px 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+     width: 45%;
+  margin-top: 6px;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 2px solid #555;
+}
+
+select {
+    padding: 8px 20px;
+  margin: 8px 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+    width: 20%;
+  margin-top: 6px;
+    outline: none;
+}
+
+select:focus {
+    border: 2px solid #555;
+}
+
+input[type=email] {
+   padding: 8px 20px;
+  margin: 8px 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+    width: 45%;
+  margin-top: 6px;
+    outline: none;
+}
+
+input[type=email]:focus {
+    border: 2px solid #555;
+
+}
+
+input[type=checkbox] {
+  
+  padding: 8px 20px;
+  margin: 8px 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 10%;
+  margin-top: 6px;
+    outline: none;
+}
+
+input[type=checkbox]:focus {
+    border: 2px solid #555;
+}
+
+input[type=number] {
+  
+  padding: 8px 20px;
+  margin: 8px 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+     width: 17%;
+  margin-top: 6px;
+    outline: none;
+}
+
+input[type=number]:focus {
+    border: 2px solid #555;
+}
+
+textarea {
+    margin-left: 10%;
+}
+
+textarea:focus {
+     border: 2px solid #555;
+    outline: none;
+}
+
+button {
+  background-color: red;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 8px;
+  margin-left: 10%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+    font-family: 'Crimson Text', serif;
+     font-size: 18px;
+    
+  
+}
+
+button:hover {
+ color: black;
+    font-weight: bold;
+}
+
+            
+        </style>
         </head>
         <body>
             
@@ -48,7 +192,7 @@
          <input type="checkbox" name="newsletter" value="newsletter" checked> Sign up to receive newsletters and any other relevant information regarding Steve Carell <br>
 
           
-           <label for="comments">Any comments? Please type them below, and we will respond as soon as possible.</label> <br>
+          <section id="comment"><label for="comments">Any comments? Please type them below, and we will respond as soon as possible.</label></section>
           <textarea name="comment" rows="10" cols="50" placeholder="Type a comment or question here..."> </textarea> <br><br>
             
                 <button> Submit </button>
