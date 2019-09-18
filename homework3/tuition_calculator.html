@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Tuition Calculator</title>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lora&display=swap" rel="stylesheet">
+        <style>
+            img {
+                width: 20%;
+            }
+            body {
+                margin: 5% 5%;
+            }
+            h1 {
+                font-family: 'Lora', serif;
+            }
+            h3 {
+                font-family: 'Crimson Text', serif;
+                font-size: 22px;
+            }
+                
+                p {
+                    font-family: 'Crimson Text', serif;
+                    font-size: 18px;
+                }
+                
+            input[type=submit] {
+              background-color: red;
+              color: white;
+              padding: 14px 20px;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+                font-family: 'Crimson Text', serif;
+                 font-size: 18px;
+                
+  
+            }
+
+            input[type=submit]:hover {
+             color: black;
+                font-weight: bold;
+}
+            
+        </style>
+    </head>
+    
+    <body>
+        <img src="logo.png" alt="lbcc_logo">
+        
+<h1>Tuition Calculator</h1>
+
+<h3>Complete this form to calculate the total cost of this semester's tuition:</h3>
+
+<form action="process_tuition.php" method="POST">
+
+<p>Are you a currently a resident of California? 
+<select name="resident">
+<option value="46">Resident</option>
+<option value="265">Non-Resident</option>
+</select></p>
+
+<p>Number of Units: 
+<select name="units">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+</select></p>
+
+<p>There is a <strong>mandatory</strong> Student Health Fee of <input type="hidden" name ="healthfee" value="20" />$20 for all registered students</p>
+
+<h3>Optional fees:</h3>
+
+<p>College Services Card: 
+<select name="csc">
+<option value="0">No [$0]</option>
+<option value="20">Yes [$20.00]</option>
+</select></p>
+
+<p>Parking Permit: 
+<select name="parking">
+<option value="0">No [$0]</option>
+<option value="30">Yes [$30.00]</option>
+</select></p>
+
+<input type="submit" name="submit" value="Submit" />
+
+</form>
+        
+    </body>
+    </html>
