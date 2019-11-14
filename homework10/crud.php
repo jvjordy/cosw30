@@ -28,12 +28,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if(!empty($_POST['password'])) {
         if($_POST['password'] != $_POST['confirm_password']) {
-            $error[3] = 'The passwords did not match. Try again';
+            $error[4] = 'The passwords did not match. Try again';
         } else {
             $password = trim($_POST['password']);
         }
     } else {
-        $error[4] = 'Please enter a password!';
+        $error[3] = 'Please enter a password!';
     }
 
     if(!empty($first_name) && !empty($last_name) && !empty($email) && !empty($password) ) {
@@ -78,23 +78,43 @@ if($result) {
     <h1>Create a New User</h1>
     <form action="crud.php" method="POST">
         <label for="first_name">First Name</label>
-        <input type="text" id="first_name" name="first_name" value="<?php if(isset($_POST['first_name'])) echo $_POST['first_name']; ?>"> <br>
+        <input type="text" id="first_name" name="first_name" value="<?php if(isset($_POST['first_name'])) echo $_POST['first_name']; ?>">
+        <?php if(isset($error[0])) {
+            echo $error[0];
+            } ?>
+            <br>
 
         <label for="last_name">Last Name</label>
-        <input type="text" id="last_name" name="last_name" value="<?php if(isset($_POST['last_name'])) echo $_POST['last_name']; ?>"> <br>
+        <input type="text" id="last_name" name="last_name" value="<?php if(isset($_POST['last_name'])) echo $_POST['last_name']; ?>">
+        <?php if(isset($error[1])) {
+            echo $error[1];
+            } ?>
+            <br>
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email'];  ?>"> <br>
+        <input type="email" id="email" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email'];  ?>">
+        <?php if(isset($error[2])) {
+            echo $error[2];
+            } ?>
+            <br>
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="password"><br>
+        <input type="password" id="password" name="password">
+        <?php if(isset($error[3])) {
+            echo $error[3];
+            } ?>
+            <br>
 
         <!--Add a second password input so the user has to retype their password -->
          <label for="confirm_password">Confirm Password</label>
-         <input type="password" id="confirm_password" name="confirm_password"><br>
+         <input type="password" id="confirm_password" name="confirm_password">
+         <?php if(isset($error[4])) {
+             echo '<p> '. $error[4] . '</p>' ;
+             } ?>
+             <br>
 
         <button>Register</button>
-        
+
     </form>
 
     <h2>Output a List of Users</h2>
