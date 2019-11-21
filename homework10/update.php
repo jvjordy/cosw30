@@ -15,19 +15,49 @@ exit;
 /*
 *   AFTER SUBMITTING THE UPDATE FORM, UPDATE THE INFO
 *   IN THE DATABASE
+
+
+  Validate the inputs (check if they're empty)
+    
+
+     if(failed condition) {
+         $errors[] = 'Error Message';
+
+     }
 */
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $first_name = $_POST['first_name'];
-    $last_name  = $_POST['last_name'];
-    $email      = $_POST['email'];
-    $password   = $_POST['password'];
-    // Validate the inputs (check if they're empty)
-    $errors = [];
+    $error = [];
 
-    // if(failed condition) {
-    //     $errors[] = 'Error Message';
+    if(empty($_POST['first_name'])) {
+        $error[0] = 'Please fill this field out.';
+    } else {
+        $first_name = trim($_POST['first_name']);
+    }
 
-    // }
+    if(empty($_POST['last_name'])) {
+        $error[0] = 'Please fill this field out.';
+    } else {
+        $last_name = trim($_POST['last_name']);
+    }
+
+    if(empty($_POST['email'])) {
+        $error[0] = 'Please fill this field out.';
+    } else {
+        $email = trim($_POST['email']);
+    }
+
+    if(!empty($_POST['password'])) {
+        if($_POST['password'] != $_POST['confirm_password']) {
+            $error[2] = 'The passwords did not match, Try again.';
+        } else {
+            $password = trim($_POST['password']);
+        }
+    } else {
+        $error[1] = 'Please enter a password';
+    }
+
+ if(!empty($error)) {
     // If they aren't empty, create and run your query
     $update_query = "UPDATE USER_VERVUURT
                      SET first_name = '$first_name',
@@ -36,13 +66,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                          password = '$password',
                      WHERE user_id = $id";
 
+                     if($result = mysqli_query($connection, $update_query)) {
+                header('Location: crud.php');
+                exit;
+        } else {
+            echo 'There seems to be a problem with updating your information. Please try again.'; 
+        }
 
-
+  }
     // Check if the database returned anything
         // If the UPDATE query was successful, redirect to
         // the crud.php page
         // Else, output an error message
 }
+
 /*
 *   QUERY THE DATABASE FOR THE USER THAT HAS THE GET ID
 */
@@ -58,7 +95,6 @@ if($result) {
     // If the database query was successful, store
     // the users information into a variable
     $user = mysqli_fetch_assoc($result);
-    print_r($user);
     $first_name = $user['first_name'];
     $last_name = $user['last_name'];
     $email = $user['email'];
@@ -66,18 +102,22 @@ if($result) {
 
 } else {
     // Output an error message
+      echo '<p>There is an error with generating the user.</p>';
 
 }
+
 ?>
 
 <!doctype html>
 <html>
 <head>
-    <title>My First CRUD</title>
+    <title>The CRUD</title>
 </head>
 <body>
     <h1>Update User</h1>
+
     <form action="update.php?id= <?php echo $id; ?>" method="POST">
+
         <label for="first_name">First Name</label>
         <input type="text" id="first_name" name="first_name" value = "<?php echo $first_name; ?>"><br>
 
@@ -90,7 +130,23 @@ if($result) {
         <label for="password">Password</label>
         <input type="password" id="password" name="password" value = "<?php echo $password; ?>"><br>
 
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" value="<?php echo $password;  ?>"><br>
+
         <button>Update User</button>
+
+        
+            <?php
+                if(isset($error[0])) {
+                    echo '<p>' . $error[0] . '</p>';
+                }
+                if(isset($error[2])) {
+                    echo '<p>' . $error[2] . '</p>';
+                }
+            ?>
+
+
+
     </form>
 </body>
 </html>
