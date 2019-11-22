@@ -1,0 +1,165 @@
+
+body { margin-bottom: 3%; }
+
+
+/* header above */
+
+/* main { background-image: linear-gradient(#333333, #dd1818, #333333); } */
+
+h1 { 
+    font-family: 'Lora', serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+}
+
+P { 
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    margin: 0;
+    
+}
+
+form {
+     border-radius: 5px;
+    padding: 0 20px 30px 20px;
+     text-align: justify;
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+    margin: 0 25% 0 25%;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+   margin-left: 10%;
+  width: 25%;
+  margin-top: 6px;
+}
+
+input[type=text] {
+  
+  padding: 8px 20px;
+  margin: 8px 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+     width: 45%;
+  margin-top: 6px;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 2px solid #555;
+}
+
+input[type=email] {
+   padding: 8px 20px;
+  margin: 8px 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+    width: 45%;
+  margin-top: 6px;
+    outline: none;
+}
+
+input[type=email]:focus {
+    border: 2px solid #555;
+}
+
+input[type=password] {
+  
+  padding: 8px 20px;
+  margin: 8px 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+     width: 45%;
+  margin-top: 6px;
+    outline: none;
+}
+
+input[type=password]:focus {
+    border: 2px solid #555;
+}
+
+
+textarea {
+    margin-left: 10%;
+    width: 50%;
+    height: 200px;
+    
+}
+
+textarea:focus {
+     border: 2px solid #555;
+    outline: none;
+}
+
+button {
+  background-color: red;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+    font-family: 'Crimson Text', serif;
+     font-size: 18px;
+    margin-left: 10%;
+  
+}
+
+button:hover {
+ color: white;
+ background-color: rgb(96, 181, 100); 
+    font-weight: bold;
+}
+
+/* Table */
+
+table {
+  font-family: 'Crimson Text', serif;
+    font-size: 18px;
+  border-collapse: collapse;
+  width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 10px;
+}
+
+td {
+
+  text-align: left;
+  padding: 5px;
+}
+
+th {
+    text-align: left;
+    padding: 5px;
+    background-color: rgb(96, 181, 100);
+    color: white;
+}
+
+
+tr:nth-child(even) {
+  background-color: rgb(125, 202, 118);
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Lora', serif;
+    text-align: center;
+}
+
+a:hover {
+    /* color: white; */
+    color: red;
+
+/* End of table */

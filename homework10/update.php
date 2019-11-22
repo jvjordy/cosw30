@@ -32,7 +32,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(empty($_POST['first_name'])) {
         $error[0] = 'Please fill this field out.';
     } else {
-        $first_name = trim($_POST['first_name']);
+       $first_name = trim($_POST['first_name']);
+        //$first_name = mysqli_real_escape_string($connection,$_POST['first_name']);
     }
 
     if(empty($_POST['last_name'])) {
@@ -57,27 +58,30 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error[1] = 'Please enter a password';
     }
 
- if(!empty($error)) {
-    // If they aren't empty, create and run your query
-    $update_query = "UPDATE USER_VERVUURT
+// If they aren't empty, create and run your query
+       if(empty($error)) {
+        
+        $update_query = "UPDATE USER_VERVUURT
                      SET first_name = '$first_name',
                          last_name = '$last_name',
                          email = '$email',
-                         password = '$password',
+                         password = '$password'
                      WHERE user_id = $id";
 
-                     if($result = mysqli_query($connection, $update_query)) {
-                header('Location: crud.php');
-                exit;
-        } else {
-            echo 'There seems to be a problem with updating your information. Please try again.'; 
-        }
+                     // Check if the database returned anything
+                     $result = mysqli_query($connection, $update_query);
 
-  }
-    // Check if the database returned anything
-        // If the UPDATE query was successful, redirect to
-        // the crud.php page
-        // Else, output an error message
+                     if($result) {
+                          // If the UPDATE query was successful, redirect to
+                          // the crud.php page
+                          // Else, output an error message
+                         header('Location: crud.php');
+                         exit;
+                         } else {
+                             echo 'There seems to be a problem with updating your information. Please try again.';
+             
+        }
+    }  
 }
 
 /*
@@ -112,40 +116,49 @@ if($result) {
 <html>
 <head>
     <title>The CRUD</title>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <h1>Update User</h1>
+    <h1>Update User Information</h1>
 
-    <form action="update.php?id= <?php echo $id; ?>" method="POST">
+    <form action="update.php?id= <?php echo $id ?>" method="POST">
 
         <label for="first_name">First Name</label>
-        <input type="text" id="first_name" name="first_name" value = "<?php echo $first_name; ?>"><br>
+        <input type="text" id="first_name" name="first_name" value = "<?php echo $first_name ?>"><br>
+        <?php if(isset($error[0])) {
+            echo '<p> '. $error[0] . '</p>';
+            } ?>
+            
 
         <label for="last_name">Last Name</label>
-        <input type="text" id="last_name" name="last_name" value = "<?php echo $last_name; ?>"><br>
+        <input type="text" id="last_name" name="last_name" value = "<?php echo $last_name ?>"><br>
+        <?php if(isset($error[0])) {
+            echo '<p> '. $error[0] . '</p>';
+            } ?>
+            
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" value = "<?php echo $email; ?>"><br>
+        <input type="email" id="email" name="email" value = "<?php echo $email ?>"><br>
+        <?php if(isset($error[0])) {
+            echo '<p> '. $error[0] . '</p>';
+            } ?>
+            
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" value = "<?php echo $password; ?>"><br>
+        <input type="password" id="password" name="password" value = "<?php echo $password ?>"><br>
+        <?php if(isset($error[0])) {
+            echo '<p> '. $error[0] . '</p>';
+            } ?>
+            
 
         <label for="confirm_password">Confirm Password</label>
-        <input type="password" id="confirm_password" name="confirm_password" value="<?php echo $password;  ?>"><br>
+        <input type="password" id="confirm_password" name="confirm_password" value="<?php echo $password ?>"><br>
+        <?php if(isset($error[2])) {
+            echo '<p> '. $error[2] . '</p>';
+            } ?>
+            
 
         <button>Update User</button>
-
-        
-            <?php
-                if(isset($error[0])) {
-                    echo '<p>' . $error[0] . '</p>';
-                }
-                if(isset($error[2])) {
-                    echo '<p>' . $error[2] . '</p>';
-                }
-            ?>
-
-
 
     </form>
 </body>

@@ -40,9 +40,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $insert_query = "INSERT INTO USER_VERVUURT (first_name, last_name, email, password) VALUES ('$first_name', '$last_name', '$email', '$password')";
 
         if ($result = mysqli_query($connection, $insert_query)) {
-        echo 'New user added to database';
+        echo '<p>New user added to database </p>';
     } else {
-        echo 'Error entering new user';
+        echo '<p> Error entering new user </p>';
     }
     }
 
@@ -64,7 +64,7 @@ if($result) {
       //  print_r($rows);
 } else {
     // Output an error
-    echo "The table cannot be generated";
+    echo "<p>The table cannot be generated </p>";
 }
 ?>
 
@@ -72,35 +72,36 @@ if($result) {
 <html>
 <head>
     <title>My First CRUD</title>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
     <h1>Create a New User</h1>
     <form action="crud.php" method="POST">
         <label for="first_name">First Name</label>
-        <input type="text" id="first_name" name="first_name" value="<?php if(isset($_POST['first_name'])) echo $_POST['first_name']; ?>">
+        <input type="text" id="first_name" name="first_name" value="<?php if(isset($_POST['first_name'])) echo $_POST['first_name']; ?>"><br>
         <?php if(isset($error[0])) {
-            echo $error[0];
+            echo '<p> '. $error[0] . '</p>';
             } ?>
             <br>
 
         <label for="last_name">Last Name</label>
-        <input type="text" id="last_name" name="last_name" value="<?php if(isset($_POST['last_name'])) echo $_POST['last_name']; ?>">
+        <input type="text" id="last_name" name="last_name" value="<?php if(isset($_POST['last_name'])) echo $_POST['last_name']; ?>"><br>
         <?php if(isset($error[1])) {
-            echo $error[1];
+            echo '<p> '. $error[1] . '</p>' ;
             } ?>
             <br>
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email'];  ?>">
+        <input type="email" id="email" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email'];  ?>"><br>
         <?php if(isset($error[2])) {
-            echo $error[2];
+            echo '<p> '. $error[2] . '</p>' ;
             } ?>
             <br>
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="password">
+        <input type="password" id="password" name="password"><br>
         <?php if(isset($error[3])) {
-            echo $error[3];
+            echo '<p> '. $error[3] . '</p>' ;;
             } ?>
             <br>
 
@@ -116,7 +117,7 @@ if($result) {
 
     </form>
 
-    <h2>Output a List of Users</h2>
+    <h1>Current Users</h1>
     <table>
         <thead>
             <tr>
